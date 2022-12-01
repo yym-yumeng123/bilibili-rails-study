@@ -1,0 +1,27 @@
+<h1>管理后台用户列表</h1>
+
+<div class="row">
+  <form action="<%= search_admin_users_path %>" method="get">
+    用户名: <input type="text" name="username" value="<%= params[:username] %>" />
+    <input type="submit" name="搜索" />
+  </form>
+  <div class="col-sm-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">用户名</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.username %></td>
+          </tr>
+        <% end -%>
+      </tbody>
+    </table>
+  </div>
+</div>
