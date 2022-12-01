@@ -9,6 +9,28 @@
   </head>
 
   <body>
-    <%= yield %>
+    <h1>首页</h1>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="<%= users_path %>">用户</a>
+      </li>
+
+        <% if  session[:user_id] %>
+        <%# #{@user.username} %>
+          <li><%= link_to "退出", session_path(session[:user_id]), method: "delete" %></li>
+        <% else %>
+          <li><%= link_to "登录", new_session_path %></li>
+        <% end %>
+    </ul>
+
+    <div>
+      <% if flash[:notice]%>
+        <div class="alert alert-info"><%= flash[:notice] %></div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
