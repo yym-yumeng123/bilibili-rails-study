@@ -19,8 +19,7 @@
       </li>
 
         <% if  session[:user_id] %>
-        <%# #{@user.username} %>
-          <li><%= link_to "退出", session_path(session[:user_id]), method: "delete" %></li>
+          <li><%= link_to "#{User.find(session[:user_id]).username}退出", session_path(session[:user_id]), method: "delete" %></li>
         <% else %>
           <li><%= link_to "登录", new_session_path %></li>
         <% end %>
