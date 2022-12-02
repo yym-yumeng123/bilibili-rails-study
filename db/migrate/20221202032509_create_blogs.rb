@@ -1,23 +1,3 @@
-# README
-
-### 创建项目
-
-```bash
-rails new ProjectName
-
-# 默认3000
-rails s(erver) -p 4000
-```
-
-### 命名空间路由
-
-```bash
-bin/rails g controller admin::users
-```
-
-### 关联关系
-
-```rb
 class CreateBlogs < ActiveRecord::Migration[6.0]
   def change
     create_table :blogs do |t|
@@ -28,6 +8,8 @@ class CreateBlogs < ActiveRecord::Migration[6.0]
       t.belongs_to :user
       t.timestamps
     end
+
+    add_index :blogs, [:user_id]
+    #Ex:- add_index("admin_users", "username")
   end
 end
-```
