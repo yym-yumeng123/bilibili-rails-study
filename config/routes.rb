@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
       post :status
+      get :blogs
     end
 
     collection do
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
   resources :sessions
+  resources :blogs
+
 
   namespace :admin do
     root 'users#index'

@@ -1,0 +1,29 @@
+<%= link_to  "创建博客", new_blog_path, class: 'btn btn-primary' %>
+<%= link_to  "我的博客", blogs_user_path(current_user), class: 'btn btn-default' %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">标题</th>
+      <th scope="col">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= blog.id %></td>
+        <td>
+          <%= link_to  blog.title, blog_path(blog) %>
+          
+          <%# <% blog.tags.each do |tag| %>
+            <%# <span class="text text-success"> %>
+              <%# <%= tag.title %> %>
+            <%# </span> %>
+          <%# <% end %>
+        </td>
+        <td><button class="btn btn-danger"><%= link_to  "删除", blog_path(blog), method: :delete  %></td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>
