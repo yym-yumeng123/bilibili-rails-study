@@ -3,6 +3,7 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">标题</th>
+      <th scope="col">作者</th>
       <th scope="col">操作</th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
             </span>
           <% end %>
         </td>
+        <td><%= blog.user.username  %></td>
         <td><button class="btn btn-danger"><%= link_to  "删除", blog_path(blog), method: :delete  %></td>
       </tr>
     <% end -%>
