@@ -1,5 +1,6 @@
 class Blog < ApplicationRecord
   belongs_to :user
+  has_and_belongs_to_many :tags, join_table: "table_name", foreign_key: "tags_id"
 
   validates :title, presence: {message: '标题不能为空'}
   validates :content, presence: {message: '内容不能为空'}
