@@ -1,5 +1,7 @@
 # README
 
+> 跟着哔哩哔哩 rails5 系统学习 rails 知识
+
 ### 创建项目
 
 ```bash
